@@ -1,3 +1,15 @@
+<% if flash[:error].present? %>
+  <div id="errors">
+    <h3>エラーがあります。</h3>
+    <ul>
+      <%# 各errorメッセージの出力%>
+      <% flash[:error].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <tr>
   <td>・<%= form.text_field :number %></td>
   <td><%= form.check_box :cellphone %></td>

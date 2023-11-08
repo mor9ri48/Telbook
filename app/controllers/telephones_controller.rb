@@ -16,6 +16,7 @@ class TelephonesController < ApplicationController
     if @telephone.save
       redirect_to new_friend_telephone_path(@friend), notice: "友達の電話番号を追加しました。"
     else
+      flash[:error] = @telephone.errors.full_messages
       redirect_to new_friend_telephone_path(@friend)
     end
   end
