@@ -1,0 +1,43 @@
+<h1>Telephones#new</h1>
+<p>Find me in app/views/telephones/new.html.erb</p>
+
+<%= @friend.name %>
+
+  <table class="list">
+    <thead>
+      <% if @telephones.present? %>
+        <tr>
+          <th>電話番号</th>
+          <th>携帯番号か否か</th>
+          <th>操作</th>
+        </tr>
+      <% end %>
+    </thead>
+    <tbody>
+      <% if @telephones.present? %>
+        <% @telephones.each do |telephone| %>
+          <tr>
+            <td>・<%= telephone.number %></td>
+            <td>
+              <% if telephone.cellphone %>
+                ○
+              <% else %>
+                －
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "削除", [@friend, telephone], method: :delete,
+                data: { confirm: "本当に削除しますか?" } %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <p>友達の電話番号がありません。</p>
+      <% end %>
+      <%= form_for @telephone, url: friend_telephones_path(@friend), method: :post do |form| %>
+        <%= render "form", form: form %>
+      <% end %>
+    </tbody>
+  </table>
+
+<div class="toolbar"><%= link_to "一覧に戻る", :friends %></div>

@@ -16,7 +16,7 @@
       <% @friends.each do |friend| %>
         <tr>
           <td><%= friend.id %></td>
-          <td><%= friend.name %></td>
+          <td><%= link_to friend.name, [:new, friend, :telephone] %></td>
           <td>
             <%= link_to "編集", [:edit, friend] %> |
             <%= link_to "削除", friend, method: :delete,
