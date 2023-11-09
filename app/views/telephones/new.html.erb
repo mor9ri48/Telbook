@@ -12,6 +12,7 @@
       </tr>
     </thead>
     <tbody>
+      <%# 電話番号の一覧 %>
       <% if @telephones.present? %>
         <% @telephones.each do |telephone| %>
           <tr>
@@ -32,6 +33,7 @@
       <% else %>
         <p>電話番号がありません。</p>
       <% end %>
+      <%# 電話番号の追加 %>
       <%= form_for @telephone, url: friend_telephones_path(@friend), method: :post do |form| %>
         <%= render "form", form: form %>
       <% end %>

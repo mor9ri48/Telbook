@@ -22,7 +22,7 @@ class FriendsController < ApplicationController
 
   def update
     @friend = Friend.find(params[:id])
-    @friend.assign_attributes(params[:friend])
+    @friend.assign_attributes(params[:friend]) #フォームに入力した友達の属性をセットする
     if @friend.save
       redirect_to :friends, notice: "友達の名前を更新しました。"
     else
