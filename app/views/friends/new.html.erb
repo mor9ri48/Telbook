@@ -1,9 +1,9 @@
-<h1>Friends#new</h1>
-<p>Find me in app/views/friends/new.html.erb</p>
+<% @page_title = "名前の追加" %>
+<h2><%= @page_title %></h2>
 
 <%= form_for @friend do |form| %>
   <%= render "form", form: form %>
-  <div><%= form.submit %></div>
+  <div class="toolbar"><%= form.submit "追加" %></div>
 <% end %>
 
-<div class="toolbar"><%= link_to "一覧に戻る", :friends %></div>
+<%= link_to "友達一覧に戻る", :friends %>

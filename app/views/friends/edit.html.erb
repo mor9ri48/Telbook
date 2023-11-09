@@ -1,9 +1,9 @@
-<h1>Friends#edit</h1>
-<p>Find me in app/views/friends/edit.html.erb</p>
+<% @page_title = "名前の編集" %>
+<h2><%= @page_title %></h2>
 
 <%= form_for @friend do |form| %>
   <%= render "form", form: form %>
-  <div><%= form.submit %></div>
+  <div class="toolbar"><%= form.submit "更新" %></div>
 <% end %>
 
-<div class="toolbar"><%= link_to "一覧に戻る", :friends %></div>
+<%= link_to "友達一覧に戻る", :friends %>

@@ -1,0 +1,19 @@
+/* エラー表示 */
+div#errors {
+  background-color: #fcc;
+  border: 2px solid #f96e6e;
+  padding: 15px;
+  margin: 0 0 1em;
+}
+
+div#errors h3 {
+  font-size: 150%;
+  color: #f00;
+  margin: 0 0 4px;
+  border: none;
+}
+
+div#errors ul {
+  margin: 0;
+  padding-left: 1.5em;
+}

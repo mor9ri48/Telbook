@@ -1,17 +1,15 @@
-<h1>Telephones#new</h1>
-<p>Find me in app/views/telephones/new.html.erb</p>
+<% @page_title = "電話番号の一覧・追加" %>
+<h2><%= @page_title %></h2>
 
-<%= @friend.name %>
+<h3><%= @friend.name %></h3>
 
   <table class="list">
     <thead>
-      <% if @telephones.present? %>
-        <tr>
-          <th>電話番号</th>
-          <th>携帯番号か否か</th>
-          <th>操作</th>
-        </tr>
-      <% end %>
+      <tr>
+        <th>電話番号</th>
+        <th>携帯番号か否か</th>
+        <th>操作</th>
+      </tr>
     </thead>
     <tbody>
       <% if @telephones.present? %>
@@ -32,7 +30,7 @@
           </tr>
         <% end %>
       <% else %>
-        <p>友達の電話番号がありません。</p>
+        <p>電話番号がありません。</p>
       <% end %>
       <%= form_for @telephone, url: friend_telephones_path(@friend), method: :post do |form| %>
         <%= render "form", form: form %>
@@ -40,4 +38,4 @@
     </tbody>
   </table>
 
-<div class="toolbar"><%= link_to "一覧に戻る", :friends %></div>
+<%= link_to "友達一覧に戻る", :friends %>

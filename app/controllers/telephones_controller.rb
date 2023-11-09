@@ -14,7 +14,7 @@ class TelephonesController < ApplicationController
     @telephone = Telephone.new(params[:telephone])
     @telephone.friend_id = params[:friend_id]
     if @telephone.save
-      redirect_to new_friend_telephone_path(@friend), notice: "友達の電話番号を追加しました。"
+      redirect_to new_friend_telephone_path(@friend), notice: "電話番号を追加しました。"
     else
       flash[:error] = @telephone.errors.full_messages
       redirect_to new_friend_telephone_path(@friend)
@@ -25,6 +25,6 @@ class TelephonesController < ApplicationController
     @friend = Friend.find(params[:friend_id])
     @telephone = @friend.telephones.find(params[:id])
     @telephone.destroy
-    redirect_to new_friend_telephone_path(@friend), notice: "友達の電話番号を削除しました。"
+    redirect_to new_friend_telephone_path(@friend), notice: "電話番号を削除しました。"
   end
 end
