@@ -4,8 +4,7 @@ class Telephone < ApplicationRecord
 
   #バリデーション設定
   validates :number, presence: true,
-  # (0XX)XXXX-XXXX・0XX-XXXX-XXXX・0XX(XXXX)XXXX・0XXZZZZXXXXのどれかに対応する形式
-  format: { with: /\A(\(0\d{1,4}\)\d{1,4}[-]?\d{4}|0\d{1,4}[-]?\d{1,4}[-]?\d{4}|0\d{1,4}\(\d{1,4}\)\d{4})\z/ },
+  format: { with: /\A(\d|[-()]){8,20}\z/ },
   length: { minimum: 8, maximum: 20, allow_blank: true }, #空文字と文字数不足のエラーを二重で出さないために、「allow_blank: true」をつける
   uniqueness: { case_sensitive: false }
 end
